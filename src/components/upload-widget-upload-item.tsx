@@ -1,11 +1,19 @@
 import * as Progress from "@radix-ui/react-progress";
 
 import { Download, ImageUp, Link2, RefreshCcw, X } from "lucide-react";
+import { motion } from "motion/react";
 import { Button } from "./ui/button";
 
 export function UploadWidgetUploadItem() {
   return (
-    <div className="relative flex flex-col gap-3 p-3 overflow-hidden rounded-lg shadow-shape-content bg-white/2">
+    <motion.div
+      className="relative flex flex-col gap-3 p-3 overflow-hidden rounded-lg shadow-shape-content bg-white/2"
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{ duration: 0.4 }}
+    >
       <div className="flex flex-col gap-1">
         <span className="flex items-center gap-1 text-xs font-medium">
           <ImageUp className="size-3 text-zinc-300" strokeWidth={1.5} />
@@ -46,6 +54,6 @@ export function UploadWidgetUploadItem() {
           <span className="sr-only">Cancel upload</span>
         </Button>
       </div>
-    </div>
+    </motion.div>
   );
 }
